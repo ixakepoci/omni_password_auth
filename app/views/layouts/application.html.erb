@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flip</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<% if current_user %>
+  Welcome <%= current_user.name %><%= current_user.email %>!
+  <%= link_to "Sign Out", signout_path %>
+<% else %>
+  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+  <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+
+      <%= link_to "Sign up", sign_up_path %> or
+    <%= link_to "log in", log_in_path %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+<%= yield %>
+
+</body>
+</html>
